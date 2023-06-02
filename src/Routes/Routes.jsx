@@ -12,6 +12,7 @@ import Secret from "../Pages/Shared/Secret/Secret";
 import Dashboard from "../Layouts/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AddItem from "../Pages/Dashboard/AddItem/Additem";
 
   export const router = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
         {
           path: 'allusers',
           element: <AllUsers></AllUsers>
+        },
+        {
+          path: 'addItem',
+          element: <AddItem></AddItem>
         }
       ]
     }
