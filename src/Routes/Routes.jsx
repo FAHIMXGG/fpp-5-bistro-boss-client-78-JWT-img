@@ -13,6 +13,7 @@ import Dashboard from "../Layouts/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AddItem from "../Pages/Dashboard/AddItem/Additem";
+import AdminRoute from "./AdminRoute";
 
   export const router = createBrowserRouter([
     {
@@ -60,7 +61,7 @@ import AddItem from "../Pages/Dashboard/AddItem/Additem";
         },
         {
           path: 'addItem',
-          element: <AddItem></AddItem>
+          element: <AdminRoute><AddItem></AddItem></AdminRoute>
         }
       ]
     }
