@@ -10,7 +10,7 @@ const AddItem = () => {
     //https://api.imgbb.com/1/upload?key
     
     const [axiosSecure] = useAxiosSecure();
-    const { register, handleSubmit,  } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${img_hosting_token}`
 
     const onSubmit = data => {
@@ -30,20 +30,20 @@ const AddItem = () => {
                 const {name, price, category, recipe} = data;
                 const newItem = {name, price: parseFloat(price), category, recipe, image:imgURL}
                 console.log(newItem)
-                // axiosSecure.post('/menu', newItem)
-                // .then(data => {
-                //     console.log('after posting new menu item', data.data)
-                //     if(data.data.insertedId){
-                //         reset();
-                //         Swal.fire({
-                //             position: 'top-end',
-                //             icon: 'success',
-                //             title: 'Item added successfully',
-                //             showConfirmButton: false,
-                //             timer: 1500
-                //           })
-                //     }
-                // })
+                axiosSecure.post('/menu', newItem)
+                .then(data => {
+                    console.log('after posting new menu item', data.data)
+                    if(data.data.insertedId){
+                        reset();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Item added successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                    }
+                })
             }
         })
 
